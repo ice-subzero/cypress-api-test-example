@@ -1,0 +1,35 @@
+{
+  "name": "cypress-sandbox-example-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@types/node": "^22.4.0",
+    "cypress": "^13.13.3",
+    "cypress-postgres": "^1.1.1",
+    "cypress-xpath": "^2.0.1",
+    "dotenv": "^16.4.5",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0",
+    "multiple-cucumber-html-reporter": "^3.7.0",
+    "pg": "^8.12.0",
+    "tsify": "^5.0.4",
+    "typescript": "^5.5.4"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/e2e/**/*.{js,ts}",
+    "json": {
+      "enabled": true,
+      "output": "cypress/generate-reports/cucumber-report.json"
+    }
+  }
+}
