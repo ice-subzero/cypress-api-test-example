@@ -22,17 +22,18 @@ describe("template spec", () => {
 
   it("should fetch user info with variables", () => {
     const query = `
-      query GetUserInfo($userId: ID!) {
-        getUserInfo(user_id: $userId) {
+      query getUserInfo($userId: ID!, $username: String!) {
+        getUserInfo(user_id: $userId, username: $username) {
           user_id
           username
           tel
-        }
       }
+    }
     `;
 
     const variables = {
       userId: "2", // ค่าตัวแปรที่คุณต้องการส่ง
+      username: "admin",
     };
 
     cy.request({
@@ -46,6 +47,11 @@ describe("template spec", () => {
         "Content-Type": "application/json",
       },
     }).then((response) => {
+      cy.fixture("expectation/getUserInfoResponse").then((data) => {
+        cy.log("test" + data.data);
+        expect(response.body.data).to.deep.equal(data.data);
+      });
+
       cy.log(response.body.data.getUserInfo.tel);
       console.log(response.body.data.getUserInfo.tel);
       expect(response.status).to.eq(200);

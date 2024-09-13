@@ -1,0 +1,9 @@
+{
+    "data": {
+        "getUserInfo": {
+            "user_id": "2",
+            "username": "admin",
+            "tel": "0812345678"
+        }
+    }
+}
